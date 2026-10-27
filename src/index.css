@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-paper text-ink-black font-body antialiased;
+  }
+  ::selection {
+    background: #e5ff00;
+    color: #080808;
+  }
+}
+
+@layer components {
+  .container-edge {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .btn-acid {
+    @apply inline-flex items-center justify-center gap-2 bg-ink-acid px-6 py-3 font-body text-[13px] font-bold uppercase tracking-wide text-ink-black transition-all duration-200 hover:bg-[#c9e000] active:scale-[0.98];
+  }
+
+  .btn-black {
+    @apply inline-flex items-center justify-center gap-2 bg-ink-black px-6 py-3 font-body text-[13px] font-bold uppercase tracking-wide text-white transition-all duration-200 hover:bg-ink-charcoal active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-ink-black px-6 py-3 font-body text-[13px] font-bold uppercase tracking-wide text-ink-black transition-all duration-200 hover:bg-ink-black hover:text-white;
+  }
+
+  .nav-link {
+    @apply relative font-body text-[12px] font-semibold uppercase tracking-[0.12em] text-white/90 transition-colors hover:text-white;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl uppercase leading-[0.9] tracking-tightest text-ink-black sm:text-5xl lg:text-6xl;
+  }
+}
+
+/* Hand-drawn annotation strokes */
+.stroke-sketch {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Torn paper edge using CSS mask */
+.torn-top {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1440' height='28' viewBox='0 0 1440 28' preserveAspectRatio='none'><path d='M0,28 L0,8 Q40,0 80,6 T160,4 T240,8 T320,3 T400,7 T480,2 T560,9 T640,4 T720,8 T800,2 T880,7 T960,3 T1040,9 T1120,4 T1200,8 T1280,3 T1360,7 T1440,5 L1440,28 Z' fill='black'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1440' height='28' viewBox='0 0 1440 28' preserveAspectRatio='none'><path d='M0,28 L0,8 Q40,0 80,6 T160,4 T240,8 T320,3 T400,7 T480,2 T560,9 T640,4 T720,8 T800,2 T880,7 T960,3 T1040,9 T1120,4 T1200,8 T1280,3 T1360,7 T1440,5 L1440,28 Z' fill='black'/></svg>");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Hide scrollbar for horizontal scroll rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
